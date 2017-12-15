@@ -1,0 +1,86 @@
+.pizza_container {
+  position: relative;
+  > img {
+    position: absolute;
+  }
+  width: 525px;
+  height: 525px;
+}
+
+.pizza_type_container {
+  border-bottom: 1px solid black;
+}
+#step1 {
+  text-align: center;
+}
+#step1 > .input {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.button {
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.button_green {
+  -webkit-transition: background-color 0.1s ease;
+  -moz-transition: background-color 0.1s ease;
+  -ms-transition: background-color 0.1s ease;
+  -o-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+  background-color: #5cb85c;
+  color: #fff;
+  &:hover {
+    background-color: #449d44;
+  }
+}
+
+.errors_danger {
+  color: red;
+}
+#step2 {
+  display: none;
+}
+.step2_container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.pizza_selection {
+  width: 40%;
+  margin-left: 150px;
+}
+.errors {
+  display: none;
+}
+#step1 .input > input {
+  order: 2;
+  flex: 1 1 auto;
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid black;
+
+}
+#step1 .input > label {
+  order: 1;
+  width: 5em;
+  padding-right: 0.5em;
+}
+
+.app-body > h1 {
+  text-align: center;
+}
+
+.pizza_ordering {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
