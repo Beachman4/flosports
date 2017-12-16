@@ -32,16 +32,22 @@ $(document).ready(function() {
         if (selected.length < 5) {
             $('.toppings_container input:checkbox:not(:checked)').attr('disabled', false)
         }
-        hideNotSelected(selected, toppings);
+        // If the device is not a laptop or desktop, don't show the pizza
+        var mq = window.matchMedia("(min-width : 1224px)");
+        if (mq.matches) {
+            hideNotSelected(selected, toppings);
+        }
     });
 
     $('.pizza_type_container input:radio').change(function() {
         var type = $('.pizza_type_container input:checked').val();
 
-        hideNotSelected([type], pizza_types);
+        // If the device is not a laptop or desktop, don't show the pizza
+        var mq = window.matchMedia("(min-width : 1224px)");
+        if (mq.matches) {
+            hideNotSelected([type], pizza_types);
+        }
     })
-
-
 
     function hideNotSelected(selected, array) {
         array.forEach(function(item) {
@@ -58,7 +64,7 @@ $(document).ready(function() {
         })
     }
 
-    var inputs = ['first_name', 'last_name', 'phone'];
+    var inputs = ['first_name', 'last_name', 'phone_number'];
 
     // Step stuff
 

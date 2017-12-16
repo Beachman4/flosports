@@ -46,15 +46,6 @@
 #step2 {
   display: none;
 }
-.step2_container {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
-.pizza_selection {
-  width: 40%;
-  margin-left: 150px;
-}
 .errors {
   display: none;
 }
@@ -83,4 +74,26 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 1223px) {
+  .pizza_container {
+    display: none !important;
+  }
+  .pizza_selection .input {
+    margin: 5px;
+  }
+}
+
+//The pizza will only render on screens like these
+@media only screen  and (min-width : 1224px) {
+  .step2_container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  .pizza_selection {
+    width: 40%;
+    margin-left: 150px;
+  }
 }

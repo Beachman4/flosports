@@ -29,6 +29,14 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    AppBundle\Repository\OrderRepository:
+        factory: doctrine.orm.entity_manager:getRepository
+        arguments:
+             - AppBundle\Entity\Order
+
+    defaultcontroller:
+            class: AppBundle\Controller\OrderController
+            arguments: ["@=service('doctrine.orm.entity_manager').getRepository('AppBundle:Order')"]
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:

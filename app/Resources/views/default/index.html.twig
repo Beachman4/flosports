@@ -3,6 +3,13 @@
 {% block content %}
     <h1>Order a Pizza!</h1>
     <div class="pizza_ordering">
+        <div class="flash">
+            {% for message in app.flashes('errors') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
         <div class="error errors_danger">
 
         </div>
@@ -17,8 +24,8 @@
                     <label for="last_name">Last Name</label>
                 </div>
                 <div class="input">
-                    <input type="text" name="phone" id="phone">
-                    <label for="phone">Phone Number</label>
+                    <input type="text" name="phone_number" id="phone_number">
+                    <label for="phone_number">Phone Number</label>
                 </div>
                 <button type="button" class="button button_green" id="step1_button">Make The Pizza</button>
             </div>
@@ -47,70 +54,70 @@
                         <div class="pizza_type_container">
                             <h4>Pizza Type</h4>
                             <div class="input">
-                                <input type="radio" id="pan_radio" value="pan" class="pizza_type" name="pizza_type" checked>
+                                <input type="radio" id="pan_radio" value="pan" class="pizza_type" name="type" checked>
                                 <label for="pan_radio">Pan</label>
                             </div>
                             <div class="input">
-                                <input type="radio" id="thin_radio" value="thin" class="pizza_type" name="pizza_type">
+                                <input type="radio" id="thin_radio" value="thin" class="pizza_type" name="type">
                                 <label for="thin_radio">Thin</label>
                             </div>
                             <div class="input">
-                                <input type="radio" id="hand_tossed_radio" value="hand_tossed" class="pizza_type" name="pizza_type">
+                                <input type="radio" id="hand_tossed_radio" value="hand_tossed" class="pizza_type" name="type">
                                 <label for="hand_tossed_radio">Hand Tossed</label>
                             </div>
                         </div>
                         <div class="toppings_container">
                             <h4>Toppings</h4>
                             <div class="input">
-                                <input type="checkbox" id="pepperoni_checkbox" value="pepperoni" class="toppings" name="toppings">
+                                <input type="checkbox" id="pepperoni_checkbox" value="pepperoni" class="toppings" name="toppings[]">
                                 <label for="pepperoni_checkbox">Pepperoni</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="beef_checkbox" value="beef" class="toppings" name="toppings">
+                                <input type="checkbox" id="beef_checkbox" value="beef" class="toppings" name="toppings[]">
                                 <label for="beef_checkbox">Beef</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="ham_checkbox" value="ham" class="toppings" name="toppings">
+                                <input type="checkbox" id="ham_checkbox" value="ham" class="toppings" name="toppings[]">
                                 <label for="ham_checkbox">Ham</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="italian_sausage_checkbox" value="italian_sausage" class="toppings" name="toppings">
+                                <input type="checkbox" id="italian_sausage_checkbox" value="italian_sausage" class="toppings" name="toppings[]">
                                 <label for="italian_sausage_checkbox">Italian Sausage</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="pork_checkbox" value="pork" class="toppings" name="toppings">
+                                <input type="checkbox" id="pork_checkbox" value="pork" class="toppings" name="toppings[]">
                                 <label for="pork_checkbox">Pork</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="chicken_checkbox" value="chicken" class="toppings" name="toppings">
+                                <input type="checkbox" id="chicken_checkbox" value="chicken" class="toppings" name="toppings[]">
                                 <label for="chicken_checkbox">Chicken</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="onions_checkbox" value="onions" class="toppings" name="toppings">
+                                <input type="checkbox" id="onions_checkbox" value="onions" class="toppings" name="toppings[]">
                                 <label for="onions_checkbox">Onions</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="green_bell_pepper_checkbox" value="green_bell_pepper" class="toppings" name="toppings">
+                                <input type="checkbox" id="green_bell_pepper_checkbox" value="green_bell_pepper" class="toppings" name="toppings[]">
                                 <label for="green_bell_pepper_checkbox">Green Bell Pepper</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="spinach_checkbox" value="spinach" class="toppings" name="toppings">
+                                <input type="checkbox" id="spinach_checkbox" value="spinach" class="toppings" name="toppings[]">
                                 <label for="spinach_checkbox">Spinach</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="tomato_checkbox" value="tomato" class="toppings" name="toppings">
+                                <input type="checkbox" id="tomato_checkbox" value="tomato" class="toppings" name="toppings[]">
                                 <label for="tomato_checkbox">Tomato</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="olives_checkbox" value="olives" class="toppings" name="toppings">
+                                <input type="checkbox" id="olives_checkbox" value="olives" class="toppings" name="toppings[]">
                                 <label for="olives_checkbox">Olives</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="pineapple_checkbox" value="pineapple" class="toppings" name="toppings">
+                                <input type="checkbox" id="pineapple_checkbox" value="pineapple" class="toppings" name="toppings[]">
                                 <label for="pineapple_checkbox">Pineapple</label>
                             </div>
                             <div class="input">
-                                <input type="checkbox" id="jalepeno_checkbox" value="jalepeno" class="toppings" name="toppings">
+                                <input type="checkbox" id="jalepeno_checkbox" value="jalepeno" class="toppings" name="toppings[]">
                                 <label for="jalepeno_checkbox">Jalepeno Peppers</label>
                             </div>
                         </div>

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block content %}
+
+    <h1>Viewing Orders</h1>
+
+    <ul class="orders">
+        {% for order in orders %}
+            <li class="order">
+                <ul>
+                    <li>{{ order.first_name }}</li>
+                    <li>{{ order.last_name }}</li>
+                    <li>{{ order.phone_number }}</li>
+                    <li>{{ order.toppings }}</li>
+                    <li>{{ order.type }}</li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
