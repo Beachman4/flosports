@@ -1,3 +1,3 @@
 # Aylon's Test Project to join Flosports
 
-### Will explain everything about the project when I am closer to being done
+### Will update this readme with a full explanation of the project when I am finished.
