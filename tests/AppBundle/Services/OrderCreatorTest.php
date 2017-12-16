@@ -3,7 +3,7 @@
 namespace Tests\AppBundle\Services;
 
 use AppBundle\Entity\Order;
-use AppBundle\Services\OrderCreator;
+use AppBundle\Creator\OrderCreator;
 use PHPUnit\Framework\TestCase;
 
 

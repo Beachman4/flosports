@@ -3,7 +3,7 @@
 namespace AppBundle\Repository;
 
 use AppBundle\Entity\Order;
-use AppBundle\Services\OrderCreator;
+use AppBundle\Creator\OrderCreator;
 
 /**
  * OrderRepository
