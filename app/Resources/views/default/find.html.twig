@@ -4,12 +4,15 @@
 {% block content %}
 
     <h1>Search for your Orders!</h1>
-    <form method="GET" action="/list">
-        <div class="input">
-            <label for="phone_number">Phone Number</label>
-            <input type="text" class="phone_number" id="phone_number" name="phone_number">
-        </div>
-        <button type="submit" class="button button_green">Search</button>
-    </form>
+
+    <div class="wrapper_center">
+        <form method="GET" action="/list">
+            <div class="input">
+                <label for="phone_number">Phone Number</label>
+                <input type="text" class="phone_number" id="phone_number" name="phone_number">
+            </div>
+            <button type="submit" class="button button_green">Search</button>
+        </form>
+    </div>
 
 {% endblock %}

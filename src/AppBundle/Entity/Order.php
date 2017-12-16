@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="orders", indexes={@ORM\Index(name="phone_number_idx", columns={"phone_number"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\OrderRepository")
  */
-class Order
+class Order implements \JsonSerializable
 {
     /**
      * @var int
@@ -55,11 +55,6 @@ class Order
      * @ORM\Column(name="type", type="string")
      */
     private $type;
-
-
-    const TYPE_PAN = 1;
-    const TYPE_THIN = 2;
-    const TYPE_HAND_TOSSED = 3;
 
 
     /**
@@ -153,6 +148,20 @@ class Order
     }
 
     /**
+     * The same thing with type, although with toppings, we convert into an array, ucfirst every element and then rejoin it.
+     *
+     * @return string
+     */
+    public function getToppingsHuman()
+    {
+        $ord = explode(",", str_replace("_", " ", $this->toppings));
+
+        $ord = array_map('ucfirst', $ord);
+
+        return implode(",", $ord);
+    }
+
+    /**
      * @param string $toppings
      *
      * @return Order
@@ -173,6 +182,16 @@ class Order
     }
 
     /**
+     * Since types are sometimes stored as snake case, i.e. 'hand_tossed', convert that into a human readable string
+     *
+     * @return string
+     */
+    public function getTypeHuman()
+    {
+        return ucwords(str_replace("_", " ", $this->type));
+    }
+
+    /**
      * @param string $type
      *
      * @return Order
@@ -182,6 +201,33 @@ class Order
         $this->type = $type;
 
         return $this;
+    }
+
+    /**
+     * Combine first_name and last_name to get full name
+     *
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->getFirstName() . " " . $this->getLastName();
+    }
+
+    /**
+     * Generate the array that will be given to json_encode when returning a JsonResponse
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'first_name' => $this->getFirstName(),
+            'last_name' => $this->getLastName(),
+            'phone_number' => $this->getPhoneNumber(),
+            'toppings' => $this->getToppings(),
+            'type' => $this->getType()
+        ];
     }
 }
 

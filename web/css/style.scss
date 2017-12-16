@@ -49,7 +49,8 @@
 .errors {
   display: none;
 }
-#step1 .input > input {
+
+.input > input[type=text] {
   order: 2;
   flex: 1 1 auto;
   padding: 5px;
@@ -57,9 +58,9 @@
   -moz-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid black;
-
 }
-#step1 .input > label {
+
+.input > label {
   order: 1;
   width: 5em;
   padding-right: 0.5em;
@@ -74,6 +75,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.wrapper_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1223px) {
@@ -96,4 +104,23 @@
     width: 40%;
     margin-left: 150px;
   }
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+.order ul {
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+  list-style: none;
+  border: 1px solid black;
+}
+
+.decisions_decisions {
+  disply: flex;
+  flex-direction: row;
 }

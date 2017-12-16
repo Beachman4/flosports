@@ -2,7 +2,6 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\Order;
 use AppBundle\Creator\OrderCreator;
 
 /**
@@ -13,6 +12,12 @@ use AppBundle\Creator\OrderCreator;
  */
 class OrderRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * Given an array of values, pass the variables into a creator and save the resulting object
+     *
+     * @param $values
+     * @return bool|object
+     */
     public function createNewOrder($values)
     {
         try {
@@ -27,6 +32,6 @@ class OrderRepository extends \Doctrine\ORM\EntityRepository
             return false;
         }
 
-        return true;
+        return $order;
     }
 }

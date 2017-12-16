@@ -28,25 +28,28 @@ class OrderController extends Controller
         $this->orderRepository = $orderRepository;
     }
 
-
     /**
      * @Route("/", name="homepage")
-     * @Method({"GET"})
      */
     public function index(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->render('default/index.html.twig');
     }
 
+    /**
+     * @Route("/create", name="create")
+     * @Method({"GET"})
+     */
+    public function create()
+    {
+        return $this->render('default/create.html.twig');
+    }
 
     /**
-     * @Route("/", name="pizza-create")
+     * @Route("/create", name="pizza-create")
      * @Method({"POST"})
      */
-    public function postIndex(Request $request)
+    public function postCreate(Request $request)
     {
         $values = $request->request->all();
 
@@ -56,7 +59,7 @@ class OrderController extends Controller
 
         $this->addFlash('errors', 'Something went wrong. Please try again!');
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('create');
     }
 
     /**
@@ -69,15 +72,21 @@ class OrderController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/find", name="find")
+     */
     public function find()
     {
         return $this->render('default/find.html.twig');
     }
 
+    /**
+     * @Route("/list", name="list")
+     */
     public function listSearch(Request $request)
     {
         $number = str_replace("-", "", $request->query->get("phone_number"));
-        $list = $this->orderRepository->findBy(['phone_number', $number]);
+        $list = $this->orderRepository->findBy(['phone_number' => $number]);
 
         return $this->render('default/list.html.twig', [
             'orders' => $list
