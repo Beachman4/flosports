@@ -1,9 +1,8 @@
 <?php
 
-namespace AppBundle\Services;
+namespace AppBundle\Creator;
 
-
-use AppBundle\Services\Interfaces\CreatorInterface;
+use AppBundle\Creator\Interfaces\CreatorInterface;
 
 abstract class Creator implements CreatorInterface
 {

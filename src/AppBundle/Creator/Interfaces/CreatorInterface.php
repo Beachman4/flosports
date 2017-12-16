@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Services\Interfaces;
+namespace AppBundle\Creator\Interfaces;
 
 
 interface CreatorInterface

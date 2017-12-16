@@ -68,4 +68,19 @@ class OrderController extends Controller
             'reallyFarAwayDate' => Carbon::now()->addMonths(rand(1, 6))->diffForHumans()
         ]);
     }
+
+    public function find()
+    {
+        return $this->render('default/find.html.twig');
+    }
+
+    public function listSearch(Request $request)
+    {
+        $number = str_replace("-", "", $request->query->get("phone_number"));
+        $list = $this->orderRepository->findBy(['phone_number', $number]);
+
+        return $this->render('default/list.html.twig', [
+            'orders' => $list
+        ]);
+    }
 }

@@ -1,7 +1,6 @@
 <?php
 
-namespace AppBundle\Services;
-
+namespace AppBundle\Creator;
 
 use AppBundle\Entity\Order;
 
