@@ -75,7 +75,8 @@ fos_rest:
     format_listener:
         enabled: true
         rules:
-            - { path: '^/', priorities: ['json', 'xml'], fallback_format: 'html' }
+            - { path: '^/api', priorities: ['json', 'xml'], fallback_format: 'html' }
+            - { path: '^/', priorities: ['html'], fallback_format: 'html'}
     versioning: true
     view:
         default_engine: twig

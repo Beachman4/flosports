@@ -26,7 +26,7 @@ class OrderRestControllerController extends Controller
     }
 
     /**
-     * @Get("/orders")
+     * @Get("/api/orders")
      */
     public function getOrders(Request $request)
     {
@@ -54,7 +54,7 @@ class OrderRestControllerController extends Controller
      *
      * @RequestParam(name="type", requirements="[a-z]+")
      *
-     * @Post("/orders")
+     * @Post("/api/orders")
      */
     public function createOrder(ParamFetcher $paramFetcher)
     {
