@@ -49,7 +49,7 @@ In order:
     
     php bin/console doctrine:database:create
     
-    php bin/console schema:create
+    php bin/console doctrine:schema:create
     
     php bin/console server:run
     
