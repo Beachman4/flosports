@@ -47,6 +47,10 @@ In order:
 
     composer install
     
+    php bin/console doctrine:database:create
+    
+    php bin/console schema:create
+    
     php bin/console server:run
     
 And you're done! Visit the site at localhost:8000
