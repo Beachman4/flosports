@@ -85,6 +85,11 @@ class OrderController extends Controller
      */
     public function listSearch(Request $request)
     {
+
+        if (!$request->query->has('phone_number')) {
+            return $this->redirectToRoute('find');
+        }
+
         $number = str_replace("-", "", $request->query->get("phone_number"));
         $list = $this->orderRepository->findBy(['phone_number' => $number]);
 
