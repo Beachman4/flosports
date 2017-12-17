@@ -18,7 +18,7 @@ class OrderRestControllerController extends Controller
 
     /**
      * OrderRestControllerController constructor.
-     * @param $orderRepository
+     * @param OrderRepository $orderRepository
      */
     public function __construct(OrderRepository $orderRepository)
     {

@@ -21,7 +21,7 @@ class OrderController extends Controller
 
     /**
      * OrderController constructor.
-     * @param $orderRepository
+     * @param OrderRepository $orderRepository
      */
     public function __construct(OrderRepository $orderRepository)
     {

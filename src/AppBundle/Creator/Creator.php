@@ -18,6 +18,13 @@ abstract class Creator implements CreatorInterface
     private $values;
 
     /**
+     * Entity to create
+     *
+     * @var object
+     */
+    protected $entity;
+
+    /**
      * @return mixed
      */
     public function getValues()
