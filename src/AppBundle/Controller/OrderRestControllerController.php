@@ -58,6 +58,14 @@ class OrderRestControllerController extends Controller
      */
     public function createOrder(ParamFetcher $paramFetcher)
     {
+        if (count($paramFetcher->get('toppings')) > 5) {
+            $error = [
+                "status" => "failed",
+                "message" => "Toppings is limited to 5 items"
+            ];
+
+            return new JsonResponse($error, 400);
+        }
         $values = $paramFetcher->all();
 
         if ($order = $this->orderRepository->createNewOrder($values)) {
